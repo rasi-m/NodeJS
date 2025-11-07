@@ -1,7 +1,6 @@
+
 import http from 'http';
 import url from 'url';
-
-
 const port = 3000;
 const server = http.createServer((req, res) => {
   if (req.url === '/' || req.url === '/home') {
@@ -25,7 +24,7 @@ const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const data = parsedUrl.query;
     console.log('Booking Details:', data);
-
+    
     res.writeHead(200, { "Content-Type": "text/html" });
     res.end(`<h1>Thank you for booking, ${data.uname}!</h1><p>Movie: ${data.movie}</p>`);
   } else {
